@@ -1,32 +1,26 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <svg-sprite />
+    <router-view />
+  </v-app>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import "@/styles/index.scss";
 </style>
+
+<script lang="ts">
+import Vue from "vue";
+import SvgSprite from "@/components/svg-sprite.vue";
+import SvgIcon from "@/components/svg-icon.vue";
+import { activitiesDS } from "@/services/activitiesDataService";
+
+activitiesDS.reload();
+
+Vue.component("svg-icon", SvgIcon);
+
+export default Vue.extend({
+  name: "App",
+  components: { SvgSprite },
+});
+</script>

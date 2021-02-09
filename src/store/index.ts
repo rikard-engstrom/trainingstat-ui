@@ -1,15 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import { ActivitiesState } from "./modules/activities";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+export interface RootState {
+  activities: ActivitiesState;
+}
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+export default new Vuex.Store<RootState>({});
